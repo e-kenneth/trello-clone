@@ -1,95 +1,53 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Box, Button, Container, Flex, Heading, Input, Link, Text, Image } from "@chakra-ui/react";
+import { FaPlay } from "react-icons/fa";
 
-export default function Home() {
+export default function HeroSection() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <Box>
+      {/* Navigation Bar */}
+      <Box as="nav" bg="white" py={3} px={6} boxShadow="sm">
+        <Flex justify="space-between" align="center" maxW="1200px" mx="auto">
+          <Flex align="center">
+            <Image src="/logo.png" alt="Trello Logo"  mr={2} />
+          </Flex>
+          <Flex gap={6} display={{ base: "none", md: "flex" }}>
+            <Link href="#">Features</Link>
+            <Link href="#">Solutions</Link>
+            <Link href="#">Plans</Link>
+            <Link href="#">Pricing</Link>
+            <Link href="#">Resources</Link>
+          </Flex>
+          <Flex gap={4}>
+            <Button variant="ghost">Log in</Button>
+            <Button colorScheme="blue">Get Trello for free</Button>
+          </Flex>
+        </Flex>
+      </Box>
+      
+      {/* Hero Section */}
+      <Container maxW="container.xl" py={20} textAlign="left">
+        <Flex direction={{ base: "column", md: "row" }} align="center" justify="space-between">
+          <Box maxW={{ base: "100%", md: "50%" }}>
+            <Heading as="h1" size="xl" mb={4}>
+              Capture, organize, and tackle your to-dos from anywhere.
+            </Heading>
+            <Text fontSize="lg" mb={6}>
+              Escape the clutter and chaos—unleash your productivity with Trello.
+            </Text>
+            <Flex>
+              <Input placeholder="Email" size="lg" width="60%" mr={2} />
+              <Button colorScheme="blue" size="lg">Sign up – it's free!</Button>
+            </Flex>
+            <Flex align="center" mt={4}>
+              <FaPlay size={14} />
+              <Link ml={2} fontSize="lg" href="#">Watch video</Link>
+            </Flex>
+          </Box>
+          <Box maxW={{ base: "100%", md: "50%" }} textAlign="center">
+            <Image src="/hero-image.png" alt="Trello Mobile" />
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
   );
 }
